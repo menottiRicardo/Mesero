@@ -17,6 +17,7 @@
     "react-icons": "^4.4.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.3.0",
     "@remix-run/dev": "^1.6.5",
     "@remix-run/eslint-config": "^1.6.5",
     "@remix-run/serve": "^1.6.5",

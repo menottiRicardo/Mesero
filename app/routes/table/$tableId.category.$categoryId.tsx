@@ -1,12 +1,26 @@
+import { json, LoaderFunction } from "@remix-run/node";
+import { faker } from "@faker-js/faker";
 import { useParams } from "@remix-run/react";
 import { BiDrink, BiFoodMenu } from "react-icons/bi";
 import { FaHamburger, FaIceCream } from "react-icons/fa";
 import { GiTomato } from "react-icons/gi";
 import MenuCategory from "~/components/MenuCategory";
+import Product from "~/components/Product";
 
+export const loader: LoaderFunction = async ({params}) => {
+  console.log(params)
+  switch (params.categoryId) {
+    case 'Todo':
+      
+      break;
+  
+    default:
+      break;
+  }
+  return json({})
+}
 const TableId = () => {
   const { tableId, categoryId } = useParams();
-  console.log(tableId);
   return (
     <div className="flex relative">
       {/* menu */}
@@ -46,78 +60,7 @@ const TableId = () => {
         </ul>
         <div className="overflow-scroll w-full h-[38rem] px-2">
           <div className="grid grid-cols-3 gap-4">
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
-          <MenuCategory
-            title="Bedidas"
-            icon={<BiDrink size={"1.5em"} />}
-            selected={categoryId}
-            tableId={tableId}
-          />
+            <Product />
           </div>
         </div>
       </div>
