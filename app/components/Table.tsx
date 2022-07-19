@@ -8,7 +8,7 @@ interface TableProps {
 
 const Table = ({ full, number, id }: TableProps) => {
   return (
-    <Link to={"/"}>
+    <Link to={`/table/${number}/category/999`}>
       <div
         className={`w-20 h-20 ${
           full === true ? "bg-red-400" : "bg-gray-200"

@@ -1,24 +1,42 @@
-import { faker } from "@faker-js/faker";
-const Product = () => {
+interface ProductProps {
+  categoryId?: string;
+  createdAt?: string;
+  description: string;
+  flavors: string[];
+  id: string;
+  name: string;
+  qty?: number;
+  sizes: any;
+  tenantId?: string;
+  updatedAt?: string;
+}
+const Product = ({ name, flavors, id, sizes, description }: ProductProps) => {
   return (
     <div className="bg-white shadow-lg rounded-md w-54 h-76">
       {/* image */}
-      <img src={faker.image.food()} alt="" className="rounded-t-md" />
+      <div className="h-28 w-54 bg-red-400 rounded-t-md"></div>
       {/* title */}
 
-      <h2 className="font-medium text-xl">{faker.commerce.product()}</h2>
+      <div className="px-3 pb-3">
+        <h2 className="font-medium text-xl uppercase">{name}</h2>
 
-      <p className="text-gray-500 text-sm">
-        {faker.commerce.productDescription()}
-      </p>
+        <p className="text-gray-500 text-sm my-2">{description}</p>
 
-      <div className="grid grid-cols-3 justify-items-center">
-        <p className="font-bold">S</p>
-        <p className="font-bold">M</p>
-        <p className="font-bold">L</p>
-        
+        <div className="flex justify-around">
+          {sizes.S && <p className="font-bold">${sizes.S}</p>}
+          {sizes.M && <p className="font-bold">${sizes.M}</p>}
+          {sizes.L && <p className="font-bold">${sizes.L}</p>}
+        </div>
+
+        <div className="flex justify-around">
+          {flavors?.map((flavor) => (
+            <span key={flavor} className="text-light">
+              ~{flavor}~
+            </span>
+          ))}
+        </div>
+        {sizes.price && <p className="font-bold text-xl">${sizes.price}</p>}
       </div>
-      <p>{faker.commerce.price(5, 100, 2, "$")}</p>
     </div>
   );
 };
